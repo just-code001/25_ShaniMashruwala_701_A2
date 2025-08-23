@@ -1,0 +1,4 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Shop Home</title><link rel="stylesheet" href="assets/css/site.css"></head><body>
+<header><a href="/"><h1>My Shop</h1></a><nav><a href="/shop">Shop</a> | <a href="/cart">Cart (<span id="cartCount">0</span>)</a></nav></header>
+<main class="container"><section class="hero"><h2>Welcome to the store</h2><p>Browse products and add to cart.</p></section></main>
+<script>document.getElementById('cartCount').textContent = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')).length : 0;</script></body></html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weather App</title>
+  <style>
+    body { font-family: Arial; margin: 40px; text-align: center; }
+    input, button { padding: 8px; margin: 5px; }
+    .weather-box { margin-top: 20px; padding: 15px; border: 1px solid #ccc; display: inline-block; }
+  </style>
+</head>
+<body>
+  <h1>🌦 Weather Utility App</h1>
+  <form action="/weather" method="POST">
+    <input type="text" name="city" placeholder="Enter city" required>
+    <button type="submit">Get Weather</button>
+  </form>
+
+  <% if (error) { %>
+    <p style="color: red;"><%= error %></p>
+  <% } %>
+
+  <% if (weather) { %>
+    <div class="weather-box">
+      <h2><%= weather.city %></h2>
+      <p>🌡 Temperature: <%= weather.temperature %> °C</p>
+      <p>💨 Windspeed: <%= weather.windspeed %> km/h</p>
+    </div>
+  <% } %>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<div class="header-row">
+  <h2>Employees</h2>
+  <a class="btn primary" href="/employees/new">+ Add Employee</a>
+</div>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>EmpID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Basic</th>
+        <th>HRA</th>
+        <th>DA</th>
+        <th>Bonus</th>
+        <th>Deductions</th>
+        <th>Total</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% if (employees.length === 0) { %>
+      <tr><td colspan="10" style="text-align:center;">No employees</td></tr>
+    <% } %>
+    <% employees.forEach(e => { %>
+      <tr>
+        <td><%= e.empid %></td>
+        <td><%= e.name %></td>
+        <td><%= e.email %></td>
+        <td><%= e.salary?.basic ?? 0 %></td>
+        <td><%= e.salary?.hra ?? 0 %></td>
+        <td><%= e.salary?.da ?? 0 %></td>
+        <td><%= e.salary?.bonus ?? 0 %></td>
+        <td><%= e.salary?.deductions ?? 0 %></td>
+        <td><b><%= e.salary?.total ?? 0 %></b></td>
+        <td>
+          <a class="btn small" href="/employees/<%= e._id %>/edit">Edit</a>
+          <form method="POST" action="/employees/<%= e._id %>?_method=DELETE" style="display:inline;">
+            <button class="btn small danger" onclick="return confirm('Delete this employee?')">Delete</button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+    </tbody>
+  </table>
+</div>

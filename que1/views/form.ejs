@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Registration</title>
+  <style>
+    .error { color: red; }
+    .form-container { width: 400px; margin: auto; }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Registration Form</h2>
+    <form action="/register" method="POST" enctype="multipart/form-data">
+      <div>
+        <label>Username:</label>
+        <input type="text" name="username" value="<%= old.username || '' %>"/>
+        <span class="error"><%= errors.username?.msg %></span>
+      </div>
+
+      <div>
+        <label>Email:</label>
+        <input type="text" name="email" value="<%= old.email || '' %>"/>
+        <span class="error"><%= errors.email?.msg %></span>
+      </div>
+
+      <div>
+        <label>Password:</label>
+        <input type="password" name="password"/>
+        <span class="error"><%= errors.password?.msg %></span>
+      </div>
+
+      <div>
+        <label>Confirm Password:</label>
+        <input type="password" name="confirmPassword"/>
+        <span class="error"><%= errors.confirmPassword?.msg %></span>
+      </div>
+
+      <div>
+        <label>Gender:</label>
+        <input type="radio" name="gender" value="Male" <%= old.gender==='Male'?'checked':'' %>> Male
+        <input type="radio" name="gender" value="Female" <%= old.gender==='Female'?'checked':'' %>> Female
+        <span class="error"><%= errors.gender?.msg %></span>
+      </div>
+
+      <div>
+        <label>Hobbies:</label>
+        <input type="checkbox" name="hobbies" value="Reading" <%= old.hobbies?.includes('Reading')?'checked':'' %>> Reading
+        <input type="checkbox" name="hobbies" value="Sports" <%= old.hobbies?.includes('Sports')?'checked':'' %>> Sports
+        <input type="checkbox" name="hobbies" value="Music" <%= old.hobbies?.includes('Music')?'checked':'' %>> Music
+        <span class="error"><%= errors.hobbies?.msg %></span>
+      </div>
+
+      <div>
+        <label>Profile Picture:</label>
+        <input type="file" name="profilePic" />
+      </div>
+
+      <div>
+        <label>Other Pictures:</label>
+        <input type="file" name="otherPics" multiple />
+      </div>
+
+      <button type="submit">Register</button>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<section class="card">
+  <h2>Add Employee</h2>
+  <form method="POST" action="/employees" class="form two-col">
+    <div>
+      <label>Name</label>
+      <input name="name" type="text" required />
+    </div>
+    <div>
+      <label>Email</label>
+      <input name="email" type="email" required />
+    </div>
+
+    <div>
+      <label>Basic</label>
+      <input name="basic" type="number" min="0" step="0.01" required />
+    </div>
+    <div>
+      <label>HRA</label>
+      <input name="hra" type="number" min="0" step="0.01" required />
+    </div>
+    <div>
+      <label>DA</label>
+      <input name="da" type="number" min="0" step="0.01" required />
+    </div>
+    <div>
+      <label>Bonus</label>
+      <input name="bonus" type="number" min="0" step="0.01" value="0" />
+    </div>
+    <div>
+      <label>Deductions</label>
+      <input name="deductions" type="number" min="0" step="0.01" value="0" />
+    </div>
+
+    <div class="full">
+      <button class="btn primary" type="submit">Create & Send Email</button>
+      <a class="btn" href="/employees">Cancel</a>
+    </div>
+  </form>
+</section>

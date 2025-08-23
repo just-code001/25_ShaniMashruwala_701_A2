@@ -1,0 +1,7 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title><%= title||'Admin' %></title>
+<link rel="stylesheet" href="/public/assets/css/admin.css"></head><body>
+<header><h1>Admin Panel</h1><nav><a href="/admin">Dashboard</a> | <a href="/admin/categories">Categories</a> | <a href="/admin/products">Products</a> | <a href="/admin/orders">Orders</a>
+<form method="POST" action="/admin/logout" style="display:inline"><button>Logout</button></form></nav></header>
+<main><%- body %></main>
+</body></html>

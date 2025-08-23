@@ -1,0 +1,4 @@
+<%- include('layout') %>
+<section><h2>Categories</h2>
+<form method="POST" action="/admin/categories"><input name="name" placeholder="Name" required><select name="parent"><option value=''>--No parent--</option><% cats.forEach(c=>{ %><option value="<%= c._id %>"><%= c.name %></option><% }) %></select><button>Add</button></form>
+<table><tr><th>Name</th><th>Parent</th><th>Action</th></tr><% cats.forEach(c=>{ %><tr><td><%= c.name %></td><td><%= c.parent? c.parent.name : '-' %></td><td><form method="POST" action="/admin/categories/delete/<%= c._id %>"><button>Delete</button></form></td></tr><% }) %></table></section>

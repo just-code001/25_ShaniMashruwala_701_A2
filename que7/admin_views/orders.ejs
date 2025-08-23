@@ -1,0 +1,4 @@
+<%- include('layout') %>
+<section><h2>Orders</h2>
+<table><tr><th>Customer</th><th>Email</th><th>Items</th><th>Total</th><th>Placed At</th></tr>
+<% orders.forEach(o=>{ %><tr><td><%= o.customerName %></td><td><%= o.customerEmail %></td><td><%= o.items.map(i=>i.qty+' x '+(i.product? i.product.title : 'deleted')).join('<br>') %></td><td><%= o.total %></td><td><%= new Date(o.createdAt).toLocaleString() %></td></tr><% }) %></table></section>
